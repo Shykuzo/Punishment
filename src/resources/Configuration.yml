@@ -1,0 +1,113 @@
+# 
+# |                GitHub : https://github.com/Shykuzo/Punishment                |
+# -------------------------------------------------------------------------------- #
+# |       _____                _       _                              _          |
+# |      |  __ \              (_)     | |                            | |         |
+# |      | |__) |_   _  _ __   _  ___ | |__   _ __ ___    ___  _ __  | |_        |
+# |      |  ___/| | | || '_ \ | |/ __|| '_ \ | '_ ` _ \  / _ \| '_ \ | __|       |
+# |      | |    | |_| || | | || |\__ \| | | || | | | | ||  __/| | | || |_        |
+# |      |_|     \__,_||_| |_||_||___/|_| |_||_| |_| |_| \___||_| |_| \__|       |
+# |                                                                              |
+# -------------------------------------------------------------------------------- #
+# |           Need Help ? : https://github.com/Shykuzo/Punishment/wiki           |
+# 
+
+# -------------------------------------------------------------------------------- #
+
+GLOBAL:
+   PREFIX:
+      PREFIX: "&6&lPunishment &8&l×"
+      ERROR: "&4&l(!)"
+      
+      # ---------- #
+      
+   MODULE:
+      DATABASE: false
+      DISCORD: false
+         
+# -------------------------------------------------------------------------------- #
+
+DATABASE:   
+   NAME: "Punishment"
+   HOST:
+      IP: ""
+      PORT: ""
+   USER:
+      NAME: ""
+      PASSWORD: ""
+      
+# -------------------------------------------------------------------------------- #
+
+DISCORD:
+   TOKEN: "-"
+   
+   STATUS: "DO_NOT_DISTURB"
+   ACTIVITY:
+      TYPE: "WATCHING"
+      VALUE: "Active Punishments"
+      
+# -------------------------------------------------------------------------------- #
+
+PERMISSION:
+   ALL: "Punishment.*"
+   
+   COMMANDS:
+      PUNISHMENT: "Punishment.Commands.Punishment"
+      
+      BAN:
+         USE: "Punishment.Commands.Ban"
+         
+         TEMPORARY: "Punishment.Commands.Ban.Temporary"
+         PERMANENTLY: "Punishment.Commands.Ban.Permanently"
+         
+      UNBAN:
+         USE: "Punishment.Commands.UnBan"
+         
+         SELF: "Punishment.Commands.UnBan.Self"
+         ALL: "Punishment.Commands.UnBan.All"
+         
+      MUTE:
+         USE: "Punishment.Commands.Mute"
+         
+         TEMPORARY: "Punishment.Commands.Mute.Temporary"
+         PERMANENTLY: "Punishment.Commands.Mute.Permanently"
+         
+      UNMUTE:
+         USE: "Punishment.Commands.UnMute"
+         
+         SELF: "Punishment.Commands.UnMute.Self"
+         ALL: "Punishment.Commands.UnMute.All"
+         
+      WARN:
+         USE: "Punishment.Commands.Warn"
+         
+         TEMPORARY: "Punishment.Commands.Warn.Temporary"
+         PERMANENTLY: "Punishment.Commands.Warn.Permanently"
+         
+      UNWARN:
+         USE: "Punishment.Commands.UnWarn"
+         
+         SELF: "Punishment.Commands.UnWarn.Self"
+         ALL: "Punishment.Commands.UnWarn.All"
+         
+      WARNS:
+         USE: "Punishment.Commands.Warns"
+         
+         LIST: "Punishment.Commands.Warns.List"
+         CLEAR: "Punishment.Commands.Warns.Clear"
+      
+      UPDATE:
+         USE: "Punishment.Commands.Update"
+         
+         REASON: "Punishment.Commands.Update.Reason"
+         DURATION:
+            USE: "Punishment.Commands.Update.Duration"
+            
+            TEMPORARY: "Punishment.Commands.Update.Duration.Temporary"
+            PERMANENTLY: "Punishment.Commands.Update.Duration.Permanently"
+      
+      KICK: "Punishment.Commands.Kick"
+      WHOIS: "Punishment.Commands.WhoIs"
+      
+      HISTORY: "Punishment.Commands.History"
+      INFRACTION: "Punishment.Commands.Infraction"

@@ -1,0 +1,9 @@
+main: fr.shykuzo.punishment.Main
+
+author: Shykuzo
+
+name: ${project.name}
+description: ${project.description}
+
+version: ${project.version}
+website: ${project.url}
