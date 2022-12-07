@@ -49,6 +49,25 @@ DISCORD:
       
 # -------------------------------------------------------------------------------- #
 
+TIMEUNIT:
+   SECOND:
+      LONG_NAME: "Second"
+      SHORT_NAME: "s"
+
+   MINUTE:
+      LONG_NAME: "Minute"
+      SHORT_NAME: "m"
+      
+   HOUR:
+      LONG_NAME: "Hour"
+      SHORT_NAME: "h"
+      
+   DAY:
+      LONG_NAME: "Day"
+      SHORT_NAME: "d"
+
+# -------------------------------------------------------------------------------- #
+
 PERMISSION:
    ALL: "Punishment.*"
    
