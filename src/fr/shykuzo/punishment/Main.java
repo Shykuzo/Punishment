@@ -3,10 +3,12 @@ package fr.shykuzo.punishment;
 import java.io.File;
 import java.util.logging.Level;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.shykuzo.punishment.listeners.connexion.PlayerJoin;
 import fr.shykuzo.punishment.utilities.Log;
 import fr.shykuzo.punishment.utilities.configuration.ConfigManager;
 import fr.shykuzo.punishment.utilities.configuration.LanguageManager;
@@ -65,7 +67,15 @@ public class Main extends JavaPlugin {
 		
 		if(getConfigManager().isDatabaseModule()) {
 			getDatabaseManager().connect();
+			
+			if(getDatabaseManager().isConnected()) {
+				getDatabaseManager().createTables();
+			}
 		}
+		
+			// ---------- \\
+		
+		Bukkit.getPluginManager().registerEvents(new PlayerJoin(), getInstance());
 	}
 	
 	@Override
