@@ -18,6 +18,9 @@ public class ConfigManager {
 	
 					// ---------- \\
 	
+	@Configuration(path = "GLOBAL.MODULE.PREMIUM", color = false)
+	private boolean premiumModule = false;
+	
 	@Configuration(path = "GLOBAL.MODULE.DATABASE", color = false)
 	private boolean databaseModule = false;
 	
@@ -72,6 +75,10 @@ public class ConfigManager {
 	}
 	
 					// ---------- \\
+	
+	public boolean isPremiumModule() {
+		return premiumModule;
+	}
 	
 	public boolean isDatabaseModule() {
 		return databaseModule;
