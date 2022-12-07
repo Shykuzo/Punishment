@@ -3,8 +3,10 @@ package fr.shykuzo.punishment.utilities.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import fr.shykuzo.punishment.Main;
+import fr.shykuzo.punishment.utilities.enumerations.Query;
 
 public class DatabaseManager {
 
@@ -39,6 +41,19 @@ public class DatabaseManager {
 			} catch (SQLException exception) {
 				exception.printStackTrace();
 			}
+		}
+	}
+	
+		// -------------------- \\
+	
+	public void createTables() {
+		try {
+			Statement statement = database.createStatement();
+			
+			statement.executeUpdate(Query.CREATE_TABLE_PLAYER.getQuery());
+			statement.executeUpdate(Query.CREATE_TABLE_PUNISHMENT.getQuery());
+		} catch (SQLException exception) {
+			exception.printStackTrace();
 		}
 	}
 	
