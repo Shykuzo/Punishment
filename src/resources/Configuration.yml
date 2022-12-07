@@ -22,6 +22,7 @@ GLOBAL:
       # ---------- #
       
    MODULE:
+      PREMIUM: false
       DATABASE: false
       DISCORD: false
          
