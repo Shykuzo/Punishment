@@ -58,6 +58,32 @@ public class ConfigManager {
 	@Configuration(path = "DISCORD.ACTIVITY.VALUE", color = false)
 	private String discordActivityValue = "Active Punishments";
 	
+				// -------------------- \\
+	
+	@Configuration(path = "TIMEUNIT.SECOND.LONG_NAME", color = false)
+	private String secondLongName = "Second";
+	
+	@Configuration(path = "TIMEUNIT.SECOND.SHORT_NAME", color = false)
+	private String secondShortName = "s";
+	
+	@Configuration(path = "TIMEUNIT.MINUTE.LONG_NAME", color = false)
+	private String minuteLongName = "Minute";
+	
+	@Configuration(path = "TIMEUNIT.MINUTE.SHORT_NAME", color = false)
+	private String minuteShortName = "m";
+	
+	@Configuration(path = "TIMEUNIT.HOUR.LONG_NAME", color = false)
+	private String hourLongName = "Hour";
+	
+	@Configuration(path = "TIMEUNIT.HOUR.SHORT_NAME", color = false)
+	private String hourShortName = "h";
+	
+	@Configuration(path = "TIMEUNIT.DAY.LONG_NAME", color = false)
+	private String dayLongName = "Day";
+	
+	@Configuration(path = "TIMEUNIT.DAY.SHORT_NAME", color = false)
+	private String dayShortName = "d";
+	
 		// ---------------------------------------- \\
 	
 	public String getPermission(String PATH) {
@@ -154,6 +180,40 @@ public class ConfigManager {
 				new Log().consoleLog(Level.WARNING, "The '" + discordActivityType + "' activity type does not exist !");
 				return Activity.watching(discordActivityValue);
 		}
+	}
+	
+				// -------------------- \\
+	
+	public String getSecondLongName() {
+		return secondLongName;
+	}
+	
+	public String getSecondShortName() {
+		return secondShortName;
+	}
+	
+	public String getMinuteLongName() {
+		return minuteLongName;
+	}
+	
+	public String getMinuteShortName() {
+		return minuteShortName;
+	}
+	
+	public String getHourLongName() {
+		return hourLongName;
+	}
+	
+	public String getHourShortName() {
+		return hourShortName;
+	}
+	
+	public String getDayLongName() {
+		return dayLongName;
+	}
+	
+	public String getDayShortName() {
+		return dayShortName;
 	}
 	
 }
