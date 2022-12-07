@@ -12,6 +12,7 @@ import fr.shykuzo.punishment.utilities.configuration.ConfigManager;
 import fr.shykuzo.punishment.utilities.configuration.LanguageManager;
 import fr.shykuzo.punishment.utilities.configuration.annotation.Annotation;
 import fr.shykuzo.punishment.utilities.database.DatabaseManager;
+import fr.shykuzo.punishment.utilities.database.managers.PlayerManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -19,7 +20,9 @@ public class Main extends JavaPlugin {
 	
 	private static Main instance;
 	private static JDA discordAPI;
+	
 	private DatabaseManager databaseManager;
+	private PlayerManager playerManager;
 	
 			// ---------- \\
 	
@@ -37,7 +40,9 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
+		
 		databaseManager = new DatabaseManager();
+		playerManager = new PlayerManager();
 		
 		load();
 		
@@ -124,6 +129,10 @@ public class Main extends JavaPlugin {
 	
 	public DatabaseManager getDatabaseManager() {
 		return databaseManager;
+	}
+	
+	public PlayerManager getPlayerManager() {
+		return playerManager;
 	}
 	
 			// ---------- \\
