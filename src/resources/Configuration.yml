@@ -25,6 +25,7 @@ GLOBAL:
       PREMIUM: false
       DATABASE: false
       DISCORD: false
+      BROADCAST: true
          
 # -------------------------------------------------------------------------------- #
 
