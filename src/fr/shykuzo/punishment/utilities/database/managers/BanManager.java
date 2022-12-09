@@ -97,6 +97,23 @@ public class BanManager {
 	
 		// -------------------- \\
 	
+	public String getModerator(String playerName, UUID playerUUID) {
+		if(!isBanned(playerName, playerUUID)) return "NOT_BANNED";
+		
+		try {
+			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(
+					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.SELECT_PUNISHMENT_BY_UUID.getQuery() : Query.SELECT_PUNISHMENT_BY_NAME.getQuery())
+			);
+			
+			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
+			return (statement.executeQuery().next() ? statement.executeQuery().getString("moderator_name") : "UNKNOWN");
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+		
+		return "UNKNOWN";
+	}
+	
 	public long getEnd(String playerName, UUID playerUUID) {
 		if(!isBanned(playerName, playerUUID)) return 0L;
 		
@@ -162,6 +179,23 @@ public class BanManager {
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
 			return (statement.executeQuery().next() ? statement.executeQuery().getString("reason") : "UNKNOWN");
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+		
+		return "UNKNOWN";
+	}
+	
+	public String getDate(String playerName, UUID playerUUID) {
+		if(!isBanned(playerName, playerUUID)) return "NOT_BANNED";
+		
+		try {
+			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(
+					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.SELECT_PUNISHMENT_BY_UUID.getQuery() : Query.SELECT_PUNISHMENT_BY_NAME.getQuery())
+			);
+			
+			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
+			return (statement.executeQuery().next() ? statement.executeQuery().getString("date") : "UNKNOWN");
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
