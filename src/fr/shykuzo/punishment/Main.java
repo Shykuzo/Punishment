@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.shykuzo.punishment.listeners.connexion.PlayerJoin;
+import fr.shykuzo.punishment.listeners.connexion.PlayerLogin;
 import fr.shykuzo.punishment.utilities.Log;
 import fr.shykuzo.punishment.utilities.configuration.ConfigManager;
 import fr.shykuzo.punishment.utilities.configuration.LanguageManager;
@@ -90,6 +91,7 @@ public class Main extends JavaPlugin {
 			// ---------- \\
 		
 		Bukkit.getPluginManager().registerEvents(new PlayerJoin(), getInstance());
+		Bukkit.getPluginManager().registerEvents(new PlayerLogin(), getInstance());
 	}
 	
 	@Override
