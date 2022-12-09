@@ -14,7 +14,11 @@ import fr.shykuzo.punishment.utilities.configuration.ConfigManager;
 import fr.shykuzo.punishment.utilities.configuration.LanguageManager;
 import fr.shykuzo.punishment.utilities.configuration.annotation.Annotation;
 import fr.shykuzo.punishment.utilities.database.DatabaseManager;
+import fr.shykuzo.punishment.utilities.database.managers.BanManager;
+import fr.shykuzo.punishment.utilities.database.managers.HistoryManager;
+import fr.shykuzo.punishment.utilities.database.managers.MuteManager;
 import fr.shykuzo.punishment.utilities.database.managers.PlayerManager;
+import fr.shykuzo.punishment.utilities.database.managers.WarnManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -25,6 +29,11 @@ public class Main extends JavaPlugin {
 	
 	private DatabaseManager databaseManager;
 	private PlayerManager playerManager;
+	
+	private BanManager banManager;
+	private MuteManager muteManager;
+	private WarnManager warnManager;
+	private HistoryManager historyManager;
 	
 			// ---------- \\
 	
@@ -45,6 +54,11 @@ public class Main extends JavaPlugin {
 		
 		databaseManager = new DatabaseManager();
 		playerManager = new PlayerManager();
+		
+		banManager = new BanManager();
+		muteManager = new MuteManager();
+		warnManager = new WarnManager();
+		historyManager = new HistoryManager();
 		
 		load();
 		
@@ -143,6 +157,24 @@ public class Main extends JavaPlugin {
 	
 	public PlayerManager getPlayerManager() {
 		return playerManager;
+	}
+	
+			// ---------- \\
+	
+	public BanManager getBanManager() {
+		return banManager;
+	}
+	
+	public MuteManager getMuteManager() {
+		return muteManager;
+	}
+	
+	public WarnManager getWarnManager() {
+		return warnManager;
+	}
+	
+	public HistoryManager getHistoryManager() {
+		return historyManager;
 	}
 	
 			// ---------- \\
