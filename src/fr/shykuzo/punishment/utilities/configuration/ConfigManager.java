@@ -27,6 +27,9 @@ public class ConfigManager {
 	@Configuration(path = "GLOBAL.MODULE.DISCORD", color = false)
 	private boolean discordModule = false;
 	
+	@Configuration(path = "GLOBAL.MODULE.BROADCAST", color = false)
+	private boolean broadcastModule = true;
+	
 				// -------------------- \\
 	
 	@Configuration(path = "DATABASE.NAME", color = false)
@@ -112,6 +115,10 @@ public class ConfigManager {
 	
 	public boolean isDiscordModule() {
 		return discordModule;
+	}
+	
+	public boolean isBroadcastModule() {
+		return broadcastModule;
 	}
 	
 				// -------------------- \\
