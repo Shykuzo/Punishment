@@ -63,6 +63,9 @@ public class ConfigManager {
 	
 				// -------------------- \\
 	
+	@Configuration(path = "TIMEUNIT.PERMANENT", color = false)
+	private String permanent = "Permanent";
+	
 	@Configuration(path = "TIMEUNIT.SECOND.LONG_NAME", color = false)
 	private String secondLongName = "Second";
 	
@@ -190,6 +193,10 @@ public class ConfigManager {
 	}
 	
 				// -------------------- \\
+	
+	public String getPermanent() {
+		return permanent;
+	}
 	
 	public String getSecondLongName() {
 		return secondLongName;
