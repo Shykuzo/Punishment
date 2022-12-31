@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,6 +16,7 @@ import fr.shykuzo.punishment.utilities.enumerations.TimeUnit;
 
 public class Ban implements CommandExecutor {
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] arguments) {
 		
@@ -42,7 +44,15 @@ public class Ban implements CommandExecutor {
 						sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("BAN"));
 						return false;
 					} else {
-						if(Main.getInstance().getPlayerManager().exists(arguments[0])) {							
+						if(Main.getInstance().getPlayerManager().exists(arguments[0])) {
+							boolean targetHasAllPermission = Bukkit.getOfflinePlayer(arguments[0]).getPlayer().hasPermission(Main.getInstance().getConfigManager().getPermission("ALL"));
+							boolean targetHasImmunePermission = Bukkit.getOfflinePlayer(arguments[0]).getPlayer().hasPermission(Main.getInstance().getConfigManager().getPermission("IMMUNE"));
+							
+							if(targetHasAllPermission || targetHasImmunePermission) {
+								sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.INVALID.IMMUNE"));
+								return false;
+							}
+							
 							if(!Main.getInstance().getBanManager().isBanned(arguments[0], getPlayerUUID(arguments[0]))) {
 								Player moderator = (sender instanceof Player ? (Player) sender : null);
 								long duration = (arguments[1].equalsIgnoreCase("PERMANENT") ? -1L : getDuration(sender, arguments[1]));
