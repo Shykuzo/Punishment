@@ -42,13 +42,11 @@ public class PlayerManager {
 	
 		// -------------------- \\
 	
-	public boolean exists(Player player) {
+	public boolean exists(String playerName) {
 		try {
-			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(
-					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.SELECT_PLAYER_BY_UUID.getQuery() : Query.SELECT_PLAYER_BY_NAME.getQuery())
-			);
+			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(Query.SELECT_PLAYER_BY_NAME.getQuery());
 			
-			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? player.getUniqueId().toString() : player.getName()));
+			statement.setString(1, playerName);
 			return statement.executeQuery().next();
 		} catch (SQLException exception) {
 			exception.printStackTrace();
