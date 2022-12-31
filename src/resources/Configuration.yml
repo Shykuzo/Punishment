@@ -71,6 +71,7 @@ TIMEUNIT:
 
 PERMISSION:
    ALL: "Punishment.*"
+   IMMUNE: "Punishment.Immune"
    
    COMMANDS:
       PUNISHMENT: "Punishment.Commands.Punishment"
