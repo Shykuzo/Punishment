@@ -150,6 +150,7 @@ ERROR:
          REASON: "{ERROR_PREFIX} &7Please enter a time unit !"
          
    INVALID:
+      IMMUNE: "{ERROR_PREFIX} &7This player is immune !"
       TARGET: "{ERROR_PREFIX} &7This player does not exist !"
       DURATION: "{ERROR_PREFIX} &7The duration format is invalid !"
       
