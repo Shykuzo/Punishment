@@ -11,7 +11,7 @@ public class PlayerJoin implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		if(Main.getInstance().getConfigManager().isDatabaseModule() && Main.getInstance().getDatabaseManager().isConnected()) {
-			if(Main.getInstance().getPlayerManager().exists(event.getPlayer())) {
+			if(Main.getInstance().getPlayerManager().exists(event.getPlayer().getName())) {
 				if(Main.getInstance().getConfigManager().isPremiumModule()) {
 					Main.getInstance().getPlayerManager().update(event.getPlayer());
 				}
