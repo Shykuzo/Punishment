@@ -15,7 +15,7 @@ import fr.shykuzo.punishment.utilities.enumerations.TimeUnit;
 
 public class BanManager {
 
-	public void ban(String playerName, UUID playerUUID, Player moderator, long endInSeconds, String reason) {
+	public void ban(String playerName, UUID playerUUID, String moderatorName, String moderatorUUID, long endInSeconds, String reason) {
 		if(isBanned(playerName, playerUUID)) return;
 		
 		long endToMillis = endInSeconds * 1000L;
@@ -26,8 +26,8 @@ public class BanManager {
 			
 			statement.setString(1, playerName);
 			statement.setString(2, playerUUID.toString());
-			statement.setString(3, moderator.getName());
-			statement.setString(4, moderator.getUniqueId().toString());
+			statement.setString(3, moderatorName);
+			statement.setString(4, moderatorUUID);
 			statement.setString(5, (end == -1L ? "PERMANENT_BAN" : "TEMPORARY_BAN"));
 			statement.setLong(6, end);
 			statement.setString(7, reason);
@@ -47,7 +47,7 @@ public class BanManager {
 			target.kickPlayer(
 					Main.getInstance().getLanguageManager().getPunishmentMessage(
 							"BAN",
-							moderator.getName(),
+							moderatorName,
 							reason,
 							getRemainingTime(playerName, playerUUID),
 							DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss").format(LocalDateTime.now())
