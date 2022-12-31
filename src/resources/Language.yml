@@ -16,10 +16,18 @@
 
 PUNISHMENT:
    BROADCAST:
-      BAN: "&4&l(!) &6{PLAYER} &fhas been &cbanned &fby &6{MODERATOR} &ffor &6{DURATION} &ffor &6{REASON} &f!"
-      KICK: "&4&l(!) &6{PLAYER} &fhas been &ckicked &fby &6{MODERATOR} &ffor &6{REASON} &f!"
-      MUTE: "&4&l(!) &6{PLAYER} &fhas been &csilenced &fby &6{MODERATOR} &ffor &6{DURATION} &ffor &6{REASON} &f!"
-      WARN: "&4&l(!) &6{PLAYER} &fhas been &cwarned &fby &6{MODERATOR} &ffor &6{REASON} &f!"
+      BAN:
+         ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &cbanned &fby &6{MODERATOR} &ffor &6{DURATION} &ffor &6{REASON} &f!"
+         NOT_ACTIVE: "&4&l(!) &fYou have &cbanned &6{PLAYER} &ffor &6{DURATION} &ffor &6{REASON} !"
+      KICK:
+         ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &ckicked &fby &6{MODERATOR} &ffor &6{REASON} &f!"
+         NOT_ACTIVE: "&4&l(!) &fYou have &ckicked &6{PLAYER} &ffor &6{REASON} !"
+      MUTE:
+         ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &csilenced &fby &6{MODERATOR} &ffor &6{DURATION} &ffor &6{REASON} &f!"
+         NOT_ACTIVE: "&4&l(!) &fYou have &csilenced &6{PLAYER} &ffor &6{DURATION} &ffor &6{REASON} !"
+      WARN:
+         ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &cwarned &fby &6{MODERATOR} &ffor &6{REASON} &f!"
+         NOT_ACTIVE: "&4&l(!) &fYou have &cwarned &6{PLAYER} &ffor &6{REASON} !"
    
    BAN:
       - "&4&lPunishment"
@@ -106,3 +114,45 @@ PUNISHMENT:
       - " "
       - "&6If you think this is a mistake, open a request on our Discord !"
       - "&ehttps://discord.com/invite/(invite code)"
+
+# -------------------------------------------------------------------------------- #
+
+HELP:
+   BAN:
+      - " "
+      - "&8&m----------------------------------------"
+      - " "
+      - "&8× &7/&fban &8(&cPLAYER&8) &8(&cDURATION&8)&7:&8(&cUNIT&8) &8(&cREASON&8)"
+      - "    &8➜ &fPLAYER &8: &7The player you want to ban."
+      - "    &8➜ &fDURATION &8: &7The duration of the ban. &8(Example: 30)"
+      - "    &8➜ &fUNIT &8: &7The unit of time. (Example: days)"
+      - "    &8➜ &fREASON &8: &7The reason for the ban."
+      - " "
+      - "&8&m----------&r &6&lExamples &8&m----------"
+      - " "
+      - "&8× &7/&fban &cBadGuy01 &c30&8:&cd &cCheating"
+      - "&8× &7/&fban &cBadGuy02 &c24&8:&ch &cThreatening"
+      - "&8× &7/&fban &cBadGuy03 &cPERMANENT &cMultiple Account (Penalty Bypass)"
+      - " "
+      - "&8&m----------------------------------------"
+      - " "
+
+# -------------------------------------------------------------------------------- #
+  
+ERROR:
+   MISSING:
+      PERMISSION: "{ERROR_PREFIX} &7Your permissions are insufficient !"
+      CONNECTION: "{ERROR_PREFIX} &7The database is not connected !"
+      
+      ARGUMENT:
+         TARGET: "{ERROR_PREFIX} &7Please enter a player's name !"
+         DURATION: "{ERROR_PREFIX} &7Please enter a duration !"
+         REASON: "{ERROR_PREFIX} &7Please enter a time unit !"
+         
+   INVALID:
+      TARGET: "{ERROR_PREFIX} &7This player does not exist !"
+      DURATION: "{ERROR_PREFIX} &7The duration format is invalid !"
+      
+   ALREADY:
+      BANNED: "{ERROR_PREFIX} &7This player is already banned !"
+      SILENCED: "{ERROR_PREFIX} &7This player is already silenced !"
