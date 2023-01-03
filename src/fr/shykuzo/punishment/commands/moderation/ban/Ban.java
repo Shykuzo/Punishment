@@ -1,6 +1,7 @@
 package fr.shykuzo.punishment.commands.moderation.ban;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -107,8 +108,10 @@ public class Ban implements CommandExecutor {
 				.prepareStatement(Query.SELECT_PLAYER_BY_NAME.getQuery());
 			
 			statement.setString(1, playerName);
-			if(statement.executeQuery().next()) {
-				return UUID.fromString(statement.executeQuery().getString("player_uuid"));
+			
+			ResultSet result = statement.executeQuery();
+			if(result.next()) {
+				return UUID.fromString(result.getString("player_uuid"));
 			}
 		} catch (SQLException exception) {
 			exception.printStackTrace();
