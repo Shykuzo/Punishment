@@ -77,7 +77,7 @@ public class BanManager {
 	public boolean isBanned(String playerName, UUID playerUUID) {
 		try {
 			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(
-					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.SELECT_PLAYER_BY_UUID.getQuery() : Query.SELECT_PLAYER_BY_NAME.getQuery())
+					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.SELECT_PUNISHMENT_BY_UUID.getQuery() : Query.SELECT_PUNISHMENT_BY_UUID.getQuery())
 			);
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
