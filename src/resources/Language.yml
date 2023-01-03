@@ -322,6 +322,10 @@ HELP:
 # -------------------------------------------------------------------------------- #
 
 MESSAGE:
+   UPDATE:
+      AVAILABLE: "{PREFIX} &7A new update is available, download it at &fhttps://github.com/Shykuzo/Punishment/releases/latest &7!"
+      LATEST: "{PREFIX} &7You are already using the latest version of Punishment !"
+
    CONFIGURATION:
       RELOAD:
          IN_PROGRESS: "{PREFIX} &7Reloading configuration files in progress ..."
@@ -329,6 +333,13 @@ MESSAGE:
       RESET:
          IN_PROGRESS: "{PREFIX} &7Reset of the configuration files in progress ..."
          FINISHED: "{PREFIX} &7Configuration files reset !"
+         
+   DATABASE:
+      CONNECT: "{PREFIX} &7The database is now connected !"
+      DISCONNECT: "{PREFIX} &7The database is now disconnected !"
+      STATUS:
+         CONNECTED: "{PREFIX} &7The database is connected !"
+         DISCONNECTED: "{PREFIX} &7The database is disconnected !"
 
 ERROR:
    MISSING:
