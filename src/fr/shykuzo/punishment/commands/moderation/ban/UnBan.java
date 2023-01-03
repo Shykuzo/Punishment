@@ -27,13 +27,12 @@ public class UnBan implements CommandExecutor {
 				if(Main.getInstance().getDatabaseManager().isConnected()) {
 					if(arguments.length < 1) {
 						sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.MISSING.ARGUMENT.TARGET"));
-						sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("BAN"));
+						sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("UNBAN"));
 						return false;
 					} else {
 						if(Main.getInstance().getPlayerManager().exists(arguments[0])) {
 							if(Main.getInstance().getBanManager().isBanned(arguments[0], getPlayerUUID(arguments[0]))) {
 								Player moderator = (sender instanceof Player ? (Player) sender : null);
-								
 								Main.getInstance().getBanManager().unban(arguments[0], getPlayerUUID(arguments[0]));
 								
 								if(Main.getInstance().getConfigManager().isBroadcastModule()) {
