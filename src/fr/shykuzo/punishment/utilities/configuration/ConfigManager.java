@@ -10,6 +10,9 @@ import net.dv8tion.jda.api.entities.Activity;
 
 public class ConfigManager {
 
+	@Configuration(path = "GLOBAL.VERSION", color = false)
+	private String version = "ERROR";
+	
 	@Configuration(path = "GLOBAL.PREFIX.PREFIX", color = true)
 	private String prefix = "&6&lPunishment &8&l×";
 	
@@ -100,6 +103,10 @@ public class ConfigManager {
 	}
 	
 		// ---------------------------------------- \\
+	
+	public String getVersion() {
+		return version; 
+	}
 	
 	public String getPrefix() {
 		return prefix + " "; 
