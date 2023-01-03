@@ -335,8 +335,13 @@ MESSAGE:
          FINISHED: "{PREFIX} &7Configuration files reset !"
          
    DATABASE:
+      ALREADY:
+         CONNECTED: "{PREFIX} &7The database is already connected !"
+         DISCONNECTED: "{PREFIX} &7The database is already disconnected !"
+   
       CONNECT: "{PREFIX} &7The database is now connected !"
       DISCONNECT: "{PREFIX} &7The database is now disconnected !"
+      
       STATUS:
          CONNECTED: "{PREFIX} &7The database is connected !"
          DISCONNECTED: "{PREFIX} &7The database is disconnected !"
