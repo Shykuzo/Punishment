@@ -30,6 +30,9 @@ public class ConfigManager {
 	@Configuration(path = "GLOBAL.MODULE.BROADCAST", color = false)
 	private boolean broadcastModule = true;
 	
+	@Configuration(path = "GLOBAL.MODULE.DEBUG", color = false)
+	private boolean debugModule = false;
+	
 				// -------------------- \\
 	
 	@Configuration(path = "DATABASE.NAME", color = false)
@@ -122,6 +125,10 @@ public class ConfigManager {
 	
 	public boolean isBroadcastModule() {
 		return broadcastModule;
+	}
+	
+	public boolean isDebugModule() {
+		return debugModule;
 	}
 	
 				// -------------------- \\
