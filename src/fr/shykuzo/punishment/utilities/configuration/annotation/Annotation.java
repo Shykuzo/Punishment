@@ -1,9 +1,13 @@
 package fr.shykuzo.punishment.utilities.configuration.annotation;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 
 import fr.shykuzo.punishment.Main;
@@ -14,41 +18,53 @@ public class Annotation {
 		LOADED, NOT_FOUND, ERROR;
 	}
 	
+	private static void writeLog(String message) {
+		try {
+			File logFile = new File(Main.getInstance().getDataFolder(), String.format(
+					"Logs/Log-%s.txt",
+					DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDateTime.now())
+			));
+			
+			FileWriter writer = new FileWriter(logFile);
+			writer.write(message);
+			writer.close();
+		} catch (IOException ignored) {}
+	}
+	
 	private static void log(Field field, Configuration configValue, Object value, LogType type) {
-		if(Main.getInstance().getConfigManager().isDebugModule()) return;
 		if(field == null || configValue == null || type == null) return;
 		
 		switch(type) {
-			case LOADED:
-				Bukkit.getConsoleSender().sendMessage(
+			case LOADED:	
+				writeLog(
 						String.format(
-								"§8[§eCONFIGURATION§8] §8[§aLOADED§8] §f➜ §7%s §8(§8[§8%s§8] §8%s§8)",
+								"[CONFIGURATION] [LOADED] ➜ %s ([%s] %s)",
 								(value != null) ? value.toString() : "Unknown", field.getName(), configValue.path()
 						)
 				);
 				
 				break;
 				
-			case NOT_FOUND:
-				Bukkit.getConsoleSender().sendMessage(
+			case NOT_FOUND:				
+				writeLog(
 						String.format(
-								"§8[§eCONFIGURATION§8] §8[§6NOT FOUND§8] §f➜ §7%s §8(§8[§8%s§8] §8%s§8)",
+								"[CONFIGURATION] [NOT FOUND] ➜ %s ([%s] %s)",
 								(value != null) ? value.toString() : "Unknown", field.getName(), configValue.path()
 						)
 				);
 				
 				break;
 				
-			case ERROR:
-				Bukkit.getConsoleSender().sendMessage(
+			case ERROR:				
+				writeLog(
 						String.format(
-								"§8[§eCONFIGURATION§8] §8[§cERROR§8] §f➜ §7%s §8(§8[§8%s§8] §8%s§8)",
+								"[CONFIGURATION] [ERROR] ➜ %s ([%s] %s)",
 								(value != null) ? value.toString() : "Unknown", field.getName(), configValue.path()
 						)
 				);
 				
 				break;
-		}
+		}		
 	}
 	
 	private static void loadField(ConfigurationSection configuration, Object object, Field field, Configuration configValue) {
