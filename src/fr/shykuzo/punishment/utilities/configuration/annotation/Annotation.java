@@ -6,6 +6,8 @@ import java.lang.reflect.Modifier;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 
+import fr.shykuzo.punishment.Main;
+
 public class Annotation {
 	
 	private enum LogType {
@@ -13,11 +15,12 @@ public class Annotation {
 	}
 	
 	private static void log(Field field, Configuration configValue, Object value, LogType type) {
+		if(Main.getInstance().getConfigManager().isDebugModule()) return;
 		if(field == null || configValue == null || type == null) return;
 		
 		switch(type) {
 			case LOADED:
-				Bukkit.getLogger().info(
+				Bukkit.getConsoleSender().sendMessage(
 						String.format(
 								"§8[§eCONFIGURATION§8] §8[§aLOADED§8] §f➜ §7%s §8(§8[§8%s§8] §8%s§8)",
 								(value != null) ? value.toString() : "Unknown", field.getName(), configValue.path()
@@ -27,7 +30,7 @@ public class Annotation {
 				break;
 				
 			case NOT_FOUND:
-				Bukkit.getLogger().warning(
+				Bukkit.getConsoleSender().sendMessage(
 						String.format(
 								"§8[§eCONFIGURATION§8] §8[§6NOT FOUND§8] §f➜ §7%s §8(§8[§8%s§8] §8%s§8)",
 								(value != null) ? value.toString() : "Unknown", field.getName(), configValue.path()
@@ -37,7 +40,7 @@ public class Annotation {
 				break;
 				
 			case ERROR:
-				Bukkit.getLogger().severe(
+				Bukkit.getConsoleSender().sendMessage(
 						String.format(
 								"§8[§eCONFIGURATION§8] §8[§cERROR§8] §f➜ §7%s §8(§8[§8%s§8] §8%s§8)",
 								(value != null) ? value.toString() : "Unknown", field.getName(), configValue.path()
