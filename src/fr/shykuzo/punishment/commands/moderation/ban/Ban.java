@@ -79,7 +79,7 @@ public class Ban implements CommandExecutor {
 										getReason(arguments)
 								));
 							} else {
-								sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.ALREADY.BANNED"));
+								sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.STATE.ALREADY.BANNED"));
 								return false;
 							}
 						} else {
