@@ -16,7 +16,6 @@ import fr.shykuzo.punishment.utilities.enumerations.TimeUnit;
 
 public class Ban implements CommandExecutor {
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] arguments) {
 		
@@ -45,12 +44,14 @@ public class Ban implements CommandExecutor {
 						return false;
 					} else {
 						if(Main.getInstance().getPlayerManager().exists(arguments[0])) {
-							boolean targetHasAllPermission = Bukkit.getOfflinePlayer(arguments[0]).getPlayer().hasPermission(Main.getInstance().getConfigManager().getPermission("ALL"));
-							boolean targetHasImmunePermission = Bukkit.getOfflinePlayer(arguments[0]).getPlayer().hasPermission(Main.getInstance().getConfigManager().getPermission("IMMUNE"));
-							
-							if(targetHasAllPermission || targetHasImmunePermission) {
-								sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.INVALID.IMMUNE"));
-								return false;
+							if(Bukkit.getPlayer(arguments[0]) != null) {
+								boolean targetHasAllPermission = Bukkit.getPlayer(arguments[0]).getPlayer().hasPermission(Main.getInstance().getConfigManager().getPermission("ALL"));
+								boolean targetHasImmunePermission = Bukkit.getPlayer(arguments[0]).getPlayer().hasPermission(Main.getInstance().getConfigManager().getPermission("IMMUNE"));
+								
+								if(targetHasAllPermission || targetHasImmunePermission) {
+									sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.INVALID.IMMUNE"));
+									return false;
+								}
 							}
 							
 							if(!Main.getInstance().getBanManager().isBanned(arguments[0], getPlayerUUID(arguments[0]))) {
