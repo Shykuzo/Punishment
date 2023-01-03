@@ -9,6 +9,9 @@ version: ${project.version}
 website: ${project.url}
 
 commands:
+   punishment:
+      description: "Manage Plugin"
+
    ban:
       description: "Ban a player temporarily or permanently."
    unban:

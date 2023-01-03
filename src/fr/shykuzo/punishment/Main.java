@@ -8,6 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.shykuzo.punishment.commands.administration.Punishment;
 import fr.shykuzo.punishment.commands.moderation.ban.Ban;
 import fr.shykuzo.punishment.commands.moderation.ban.UnBan;
 import fr.shykuzo.punishment.listeners.connexion.PlayerJoin;
@@ -94,6 +95,8 @@ public class Main extends JavaPlugin {
 		
 		Bukkit.getPluginManager().registerEvents(new PlayerJoin(), getInstance());
 		Bukkit.getPluginManager().registerEvents(new PlayerLogin(), getInstance());
+		
+		getCommand("punishment").setExecutor(new Punishment());
 		
 		getCommand("ban").setExecutor(new Ban());
 		getCommand("unban").setExecutor(new UnBan());
