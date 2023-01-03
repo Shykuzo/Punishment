@@ -66,7 +66,8 @@ public class BanManager {
 					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.UPDATE_PUNISHMENT_STATE_BY_UUID.getQuery() : Query.UPDATE_PUNISHMENT_STATE_BY_NAME.getQuery())
 			);
 			
-			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
+			statement.setBoolean(1, false);
+			statement.setString(2, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
 			statement.executeUpdate();
 		} catch (SQLException exception) {
 			exception.printStackTrace();
