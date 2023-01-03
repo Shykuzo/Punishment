@@ -1,6 +1,7 @@
 package fr.shykuzo.punishment.utilities.database.managers;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -81,7 +82,14 @@ public class BanManager {
 			);
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
-			return statement.executeQuery().next();
+			ResultSet result = statement.executeQuery();
+			if(result.next()) {
+				if(result.getBoolean("state")) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
