@@ -11,3 +11,5 @@ website: ${project.url}
 commands:
    ban:
       description: "Ban a player temporarily or permanently."
+   unban:
+      description: "Unban a player."
