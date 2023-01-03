@@ -18,16 +18,22 @@ PUNISHMENT:
    BROADCAST:
       BAN:
          ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &cbanned &fby &6{MODERATOR} &ffor &6{DURATION} &ffor &6{REASON} &f!"
-         NOT_ACTIVE: "&4&l(!) &fYou have &cbanned &6{PLAYER} &ffor &6{DURATION} &ffor &6{REASON} !"
+         NOT_ACTIVE: "&4&l(!) &fYou have &cbanned &6{PLAYER} &ffor &6{DURATION} &ffor &6{REASON} &f!"
+      UNBAN:
+         ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &cunbanned &fby &6{MODERATOR} &f!"
+         NOT_ACTIVE: "&4&l(!) &fYou have &cunbanned &6{PLAYER} &f!"
       KICK:
          ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &ckicked &fby &6{MODERATOR} &ffor &6{REASON} &f!"
-         NOT_ACTIVE: "&4&l(!) &fYou have &ckicked &6{PLAYER} &ffor &6{REASON} !"
+         NOT_ACTIVE: "&4&l(!) &fYou have &ckicked &6{PLAYER} &ffor &6{REASON} &f!"
       MUTE:
          ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &csilenced &fby &6{MODERATOR} &ffor &6{DURATION} &ffor &6{REASON} &f!"
-         NOT_ACTIVE: "&4&l(!) &fYou have &csilenced &6{PLAYER} &ffor &6{DURATION} &ffor &6{REASON} !"
+         NOT_ACTIVE: "&4&l(!) &fYou have &csilenced &6{PLAYER} &ffor &6{DURATION} &ffor &6{REASON} &f!"
+      UNMUTE:
+         ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &cunsilenced &fby &6{MODERATOR} &f!"
+         NOT_ACTIVE: "&4&l(!) &fYou have &cunsilenced &6{PLAYER} &f!"
       WARN:
          ACTIVE: "&4&l(!) &6{PLAYER} &fhas been &cwarned &fby &6{MODERATOR} &ffor &6{REASON} &f!"
-         NOT_ACTIVE: "&4&l(!) &fYou have &cwarned &6{PLAYER} &ffor &6{REASON} !"
+         NOT_ACTIVE: "&4&l(!) &fYou have &cwarned &6{PLAYER} &ffor &6{REASON} &f!"
    
    BAN:
       - "&4&lPunishment"
