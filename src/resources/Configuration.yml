@@ -26,6 +26,8 @@ GLOBAL:
       DATABASE: false
       DISCORD: false
       BROADCAST: true
+      
+      DEBUG: false
          
 # -------------------------------------------------------------------------------- #
 
