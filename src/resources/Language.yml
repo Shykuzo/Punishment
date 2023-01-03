@@ -130,7 +130,13 @@ HELP:
       - " "
       - "&8× &7/&fpunishment &8(&cOPTION&8)"
       - "    &8➜ &fOPTION &8: &7An option. &8(Available Options : &freload&8, &freset)"
-      - "    &8➜ &fAVAILABLE OPTION &8: &7reload &8/ &7reset &8/ &7check-update"
+      - "    &8➜ &fAVAILABLE OPTION &8:"
+      - "          &8- &7reload &8: &7Reload configuration files."
+      - "          &8- &7reset &8: &7Reset configuration files."
+      - "          &8- &7update &8: &7Check if there is an update available."
+      - "          &8- &7connect &8: &7Connect the database."
+      - "          &8- &7disconnect &8: &7Disconnect the database."
+      - "          &8- &7status &8: &7Check if the database is connected."
       - " "
       - "&8&m----------------------------------------"
       - " "
@@ -314,7 +320,16 @@ HELP:
       - " "
 
 # -------------------------------------------------------------------------------- #
-  
+
+MESSAGE:
+   CONFIGURATION:
+      RELOAD:
+         IN_PROGRESS: "{PREFIX} &7Reloading configuration files in progress ..."
+         FINISHED: "{PREFIX} &7Configuration files reloaded !"
+      RESET:
+         IN_PROGRESS: "{PREFIX} &7Reset of the configuration files in progress ..."
+         FINISHED: "{PREFIX} &7Configuration files reset !"
+
 ERROR:
    MISSING:
       PERMISSION: "{ERROR_PREFIX} &7Your permissions are insufficient !"
@@ -326,6 +341,7 @@ ERROR:
          REASON: "{ERROR_PREFIX} &7Please enter a reason !"
          
    INVALID:
+      OPTION: "{ERROR_PREFIX} &7This option does not exist !"
       IMMUNE: "{ERROR_PREFIX} &7This player is immune !"
       TARGET: "{ERROR_PREFIX} &7This player does not exist !"
       DURATION: "{ERROR_PREFIX} &7The duration format is invalid !"
