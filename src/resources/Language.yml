@@ -129,7 +129,7 @@ HELP:
       - "&8&m----------------------------------------"
       - " "
       - "&8× &7/&fpunishment &8(&cOPTION&8)"
-      - "    &8➜ &fOPTION &8: &7An option. &8(Available Options : &freload&8, &freset)"
+      - "    &8➜ &fOPTION &8: &7An option."
       - "    &8➜ &fAVAILABLE OPTION &8:"
       - "          &8- &7reload &8: &7Reload configuration files."
       - "          &8- &7reset &8: &7Reset configuration files."
