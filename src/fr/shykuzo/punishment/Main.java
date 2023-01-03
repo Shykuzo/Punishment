@@ -73,7 +73,7 @@ public class Main extends JavaPlugin {
 			new Log().consoleLog(
 					Level.WARNING,
 					String.format(
-							"\n" + "The 'Discord' module could not be activated !"
+							"The 'Discord' module could not be activated !"
 							+ "\n" + "Status : %s",
 							
 							(getConfigManager().isDatabaseModule() ? "Error (Missing Token)" : "Normal (Module Disabled)")
