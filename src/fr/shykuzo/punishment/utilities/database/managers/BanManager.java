@@ -85,11 +85,7 @@ public class BanManager {
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
 			ResultSet result = statement.executeQuery();
 			if(result.next()) {
-				if(result.getBoolean("state")) {
-					return true;
-				} else {
-					return false;
-				}
+				return result.getBoolean("state");
 			}
 		} catch (SQLException exception) {
 			exception.printStackTrace();
