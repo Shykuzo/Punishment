@@ -147,7 +147,7 @@ ERROR:
       ARGUMENT:
          TARGET: "{ERROR_PREFIX} &7Please enter a player's name !"
          DURATION: "{ERROR_PREFIX} &7Please enter a duration !"
-         REASON: "{ERROR_PREFIX} &7Please enter a time unit !"
+         REASON: "{ERROR_PREFIX} &7Please enter a reason !"
          
    INVALID:
       IMMUNE: "{ERROR_PREFIX} &7This player is immune !"
