@@ -69,15 +69,27 @@ public class Ban implements CommandExecutor {
 										getReason(arguments)
 								);
 								
-								sender.sendMessage(Main.getInstance().getLanguageManager().getBroadcastMessage(
-										"BAN." + (Main.getInstance().getConfigManager().isBroadcastModule() ? "ACTIVE" : "NOT_ACTIVE"),
-										arguments[0],
-										(moderator != null ? moderator.getName() : "CONSOLE"),
-										(arguments[1].equalsIgnoreCase("PERMANENT")
-												? Main.getInstance().getConfigManager().getPermanent()
-												: arguments[1].split(":")[0] + " " + TimeUnit.getFromShortName(arguments[1].split(":")[1]).getLongName()),
-										getReason(arguments)
-								));
+								if(Main.getInstance().getConfigManager().isBroadcastModule()) {
+									Bukkit.broadcastMessage(Main.getInstance().getLanguageManager().getBroadcastMessage(
+											"BAN." + (Main.getInstance().getConfigManager().isBroadcastModule() ? "ACTIVE" : "NOT_ACTIVE"),
+											arguments[0],
+											(moderator != null ? moderator.getName() : "CONSOLE"),
+											(arguments[1].equalsIgnoreCase("PERMANENT")
+													? Main.getInstance().getConfigManager().getPermanent()
+													: arguments[1].split(":")[0] + " " + TimeUnit.getFromShortName(arguments[1].split(":")[1]).getLongName()),
+											getReason(arguments)
+									));
+								} else {
+									sender.sendMessage(Main.getInstance().getLanguageManager().getBroadcastMessage(
+											"BAN." + (Main.getInstance().getConfigManager().isBroadcastModule() ? "ACTIVE" : "NOT_ACTIVE"),
+											arguments[0],
+											(moderator != null ? moderator.getName() : "CONSOLE"),
+											(arguments[1].equalsIgnoreCase("PERMANENT")
+													? Main.getInstance().getConfigManager().getPermanent()
+													: arguments[1].split(":")[0] + " " + TimeUnit.getFromShortName(arguments[1].split(":")[1]).getLongName()),
+											getReason(arguments)
+									));
+								}
 							} else {
 								sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.STATE.ALREADY.BANNED"));
 								return false;
