@@ -154,6 +154,10 @@ ERROR:
       TARGET: "{ERROR_PREFIX} &7This player does not exist !"
       DURATION: "{ERROR_PREFIX} &7The duration format is invalid !"
       
-   ALREADY:
-      BANNED: "{ERROR_PREFIX} &7This player is already banned !"
-      SILENCED: "{ERROR_PREFIX} &7This player is already silenced !"
+   STATE:
+      ALREADY:
+         BANNED: "{ERROR_PREFIX} &7This player is already banned !"
+         SILENCED: "{ERROR_PREFIX} &7This player is already silenced !"
+      NOT:
+         BANNED: "{ERROR_PREFIX} &7This player isn't banned !"
+         SILENCED: "{ERROR_PREFIX} &7This player isn't silenced !"
