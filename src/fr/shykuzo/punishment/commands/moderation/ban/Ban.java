@@ -27,6 +27,7 @@ public class Ban implements CommandExecutor {
 			if(hasAllPermission || hasCommandPermission) {
 				if(Main.getInstance().getDatabaseManager().isConnected()) {
 					if(arguments.length < 3) {
+						sender.sendMessage(Main.getInstance().getLanguageManager().getHelpMessage("BAN") + "\n");
 						switch(arguments.length) {
 							case 0:
 								sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.MISSING.ARGUMENT.TARGET"));
@@ -41,7 +42,6 @@ public class Ban implements CommandExecutor {
 								break;
 						}
 						
-						sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("BAN"));
 						return false;
 					} else {
 						if(Main.getInstance().getPlayerManager().exists(arguments[0])) {
@@ -140,20 +140,20 @@ public class Ban implements CommandExecutor {
 					if(TimeUnit.existFromShortName(durationArgument.split(":")[1])) {
 						return TimeUnit.getFromShortName(durationArgument.split(":")[1]).getToSecond() * durationInt;
 					} else {
+						sender.sendMessage(Main.getInstance().getLanguageManager().getHelpMessage("BAN") + "\n");
 						sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.INVALID.DURATION"));
-						sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("BAN"));
 						
 						return 0L;
 					}
 				} catch (NumberFormatException exception) {
+					sender.sendMessage(Main.getInstance().getLanguageManager().getHelpMessage("BAN") + "\n");
 					sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.INVALID.DURATION"));
-					sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("BAN"));
 					
 					return 0L;
 				}
-			} else {										
+			} else {
+				sender.sendMessage(Main.getInstance().getLanguageManager().getHelpMessage("BAN") + "\n");
 				sender.sendMessage(Main.getInstance().getLanguageManager().getString("ERROR.INVALID.DURATION"));
-				sender.sendMessage("\n" + Main.getInstance().getLanguageManager().getHelpMessage("BAN"));
 				
 				return 0L;
 			}
