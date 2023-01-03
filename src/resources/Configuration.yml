@@ -33,7 +33,7 @@ DATABASE:
    NAME: "Punishment"
    HOST:
       IP: ""
-      PORT: ""
+      PORT: 3306
    USER:
       NAME: ""
       PASSWORD: ""

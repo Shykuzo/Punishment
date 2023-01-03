@@ -13,7 +13,7 @@ public class ConfigManager {
 	@Configuration(path = "GLOBAL.PREFIX.PREFIX", color = true)
 	private String prefix = "&6&lPunishment &8&l×";
 	
-	@Configuration(path = "GLOBAL.PREFIX.ERROR_PREFIX", color = true)
+	@Configuration(path = "GLOBAL.PREFIX.ERROR", color = true)
 	private String errorPrefix = "&4&l(!)";
 	
 					// ---------- \\
