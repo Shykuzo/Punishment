@@ -7,3 +7,7 @@ description: ${project.description}
 
 version: ${project.version}
 website: ${project.url}
+
+commands:
+   ban:
+      description: "Ban a player temporarily or permanently."
