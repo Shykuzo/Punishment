@@ -2,6 +2,8 @@ package fr.shykuzo.punishment.utilities.database.managers;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
@@ -17,7 +19,7 @@ public class PlayerManager {
 			
 			statement.setString(1, player.getName());
 			statement.setString(2, player.getUniqueId().toString());
-			statement.setString(3, player.getName());
+			statement.setString(3, DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss").format(LocalDateTime.now()));
 			
 			statement.executeUpdate();
 			statement.close();
