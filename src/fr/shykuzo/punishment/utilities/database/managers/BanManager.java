@@ -32,10 +32,10 @@ public class BanManager {
 			statement.setString(5, (end == -1L ? "PERMANENT_BAN" : "TEMPORARY_BAN"));
 			statement.setLong(6, end);
 			statement.setString(7, reason);
-			statement.setBoolean(8, true);
-			statement.setString(9, DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss").format(LocalDateTime.now()));
+			statement.setString(8, DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss").format(LocalDateTime.now()));
 			
 			statement.executeUpdate();
+			addHistory(playerName, playerUUID, moderatorName, moderatorUUID, (end == -1L ? "PERMANENT_BAN" : "TEMPORARY_BAN"), reason);
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
@@ -63,11 +63,30 @@ public class BanManager {
 		
 		try {
 			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(
-					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.UPDATE_PUNISHMENT_STATE_BY_UUID.getQuery() : Query.UPDATE_PUNISHMENT_STATE_BY_NAME.getQuery())
+					(Main.getInstance().getConfigManager().isPremiumModule() ? Query.REMOVE_PUNISHMENT_BY_UUID.getQuery() : Query.REMOVE_PUNISHMENT_BY_NAME.getQuery())
 			);
 			
-			statement.setBoolean(1, false);
-			statement.setString(2, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
+			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
+			statement.setString(2, "TEMPORARY_BAN");
+			statement.setString(3, "PERMANENT_BAN");
+			statement.executeUpdate();
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+	}
+	
+	private void addHistory(String playerName, UUID playerUUID, String moderatorName, String moderatorUUID, String type, String reason) {		
+		try {
+			PreparedStatement statement = Main.getInstance().getDatabaseManager().getDatabase().prepareStatement(Query.INSERT_HISTORY.getQuery());
+			
+			statement.setString(1, playerName);
+			statement.setString(2, playerUUID.toString());
+			statement.setString(3, moderatorName);
+			statement.setString(4, moderatorUUID);
+			statement.setString(5, type);
+			statement.setString(6, reason);
+			statement.setString(7, DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss").format(LocalDateTime.now()));
+			
 			statement.executeUpdate();
 		} catch (SQLException exception) {
 			exception.printStackTrace();
@@ -85,8 +104,8 @@ public class BanManager {
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
 			ResultSet result = statement.executeQuery();
 			if(result.next()) {
-				if(result.getString("type") == "TEMPORARY_BAN" || result.getString("type") == "PERMANENT_BAN") {
-					return result.getBoolean("state");
+				if(result.getString("type").equals("TEMPORARY_BAN") || result.getString("type").equals("PERMANENT_BAN")) {
+					return true;
 				}
 				return false;
 			}
