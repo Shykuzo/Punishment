@@ -111,7 +111,12 @@ public class BanManager {
 			);
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
-			return (statement.executeQuery().next() ? statement.executeQuery().getString("moderator_name") : "UNKNOWN");
+			ResultSet result = statement.executeQuery();
+			if(result.next()) {
+				return result.getString("moderator_name");
+			}
+			
+			return "UNKNOWN";
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
