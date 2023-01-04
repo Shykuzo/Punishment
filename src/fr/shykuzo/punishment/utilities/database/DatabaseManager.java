@@ -52,6 +52,7 @@ public class DatabaseManager {
 			
 			statement.executeUpdate(Query.CREATE_TABLE_PLAYER.getQuery());
 			statement.executeUpdate(Query.CREATE_TABLE_PUNISHMENT.getQuery());
+			statement.executeUpdate(Query.CREATE_TABLE_HISTORY.getQuery());
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
