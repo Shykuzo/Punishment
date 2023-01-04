@@ -1,8 +1,6 @@
 package fr.shykuzo.punishment;
 
 import java.io.File;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -137,14 +135,6 @@ public class Main extends JavaPlugin {
 	}
 	
 	public void reload() {
-		File logFile = new File(getDataFolder(), String.format(
-				"Logs/Log-%s.txt",
-				DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDateTime.now())
-		));
-		if(!logFile.exists()) {
-			logFile.getParentFile().mkdirs();
-		}
-		
 		Annotation.loadClass(config, getConfigManager());
 		Annotation.loadClass(languageConfig, getLanguageManager());
 	}
