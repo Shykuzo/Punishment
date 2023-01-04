@@ -128,7 +128,12 @@ public class BanManager {
 			);
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
-			return (statement.executeQuery().next() ? statement.executeQuery().getLong("end") : 0L);
+			ResultSet result = statement.executeQuery();
+			if(result.next()) {
+				return result.getLong("end");
+			}
+			
+			return 0L;
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
@@ -183,7 +188,12 @@ public class BanManager {
 			);
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
-			return (statement.executeQuery().next() ? statement.executeQuery().getString("reason") : "UNKNOWN");
+			ResultSet result = statement.executeQuery();
+			if(result.next()) {
+				return result.getString("reason");
+			}
+			
+			return "UNKNOWN";
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
@@ -200,7 +210,12 @@ public class BanManager {
 			);
 			
 			statement.setString(1, (Main.getInstance().getConfigManager().isPremiumModule() ? playerUUID.toString() : playerName));
-			return (statement.executeQuery().next() ? statement.executeQuery().getString("date") : "UNKNOWN");
+			ResultSet result = statement.executeQuery();
+			if(result.next()) {
+				return result.getString("date");
+			}
+			
+			return "UNKNOWN";
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
